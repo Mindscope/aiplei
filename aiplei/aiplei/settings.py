@@ -53,7 +53,7 @@ USE_I18N = True
 USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = True
+USE_TZ = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -159,6 +159,13 @@ INSTALLED_APPS = (
     'registration',
     'social_auth',
     'invitation',
+    'notification',
+    'messages',
+    'mailer',
+
+    #apps
+    'beta',
+    'profiles',
 )
 
 # Uncomment if using django-cms and/or django-filer
@@ -204,13 +211,21 @@ ADMIN_TOOLS_INDEX_DASHBOARD = 'aiplei.dashboard.QueoIndexDashboard'
 ADMIN_TOOLS_THEMING_CSS = 'site/css/theming.css'
 ADMIN_TOOLS_MENU = 'aiplei.menu.QueoMenu'
 
-# Email settings for django-mailer
-DEFAULT_FROM_EMAIL = ''
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+
+DEFAULT_FROM_EMAIL = 'gustavo@queo.pt'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'gustavo@queo.pt'
+EMAIL_HOST_PASSWORD = 'Cartesian41'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Email settings for django-mailer
+#DEFAULT_FROM_EMAIL = ''
+#EMAIL_HOST = ''
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
 
 #Registration configuration
 ACCOUNT_ACTIVATION_DAYS = 7
@@ -218,6 +233,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 #Invitations configuration
 ACCOUNT_INVITATION_DAYS = 10
 INVITATIONS_PER_USER = 3
+INVITE_MODE = True
 
 #Social authentication
 AUTHENTICATION_BACKENDS = (

@@ -9,8 +9,11 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^admin_tools/', include('admin_tools.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^accounts/', include('invitation.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^messages/', include('messages.urls')),
+    url(r'^beta/', include('beta.urls')),
+    url(r'^profiles/', include('profiles.urls')),
 )
 
 if settings.DEBUG:
